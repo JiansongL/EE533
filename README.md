@@ -7,10 +7,9 @@ This repository contains all laboratory assignments and homework for the EE533 c
 ```
 EE533/
 ├── README.md           # This file
-├── labs/              # Laboratory assignments directory
-│   ├── lab1/          # Lab 1 files
-│   ├── lab2/          # Lab 2 files
-│   └── ...
+├── lab1/          # Lab 1 files
+├── lab2/          # Lab 2 files
+└── ...
 ```
 
 ## Labs
