@@ -1,0 +1,1 @@
+sch2vhdl -intstyle ise -family aspartan2e -flat -suppress -w "Z:/lab3/lab2/full_adder.sch" full_adder.vhf

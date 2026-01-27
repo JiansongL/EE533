@@ -1,0 +1,3 @@
+MODULE sync_8_bit_adder
+	SUBMODULE adder_8_bit
+		INSTANCE XLXI_1

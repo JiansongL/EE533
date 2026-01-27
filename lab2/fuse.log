@@ -1,0 +1,16 @@
+Determining compilation order of HDL files
+Analyzing Verilog file ALU_32_bit.v
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.ALU_32bit into
+z:/lab3/lab2/isim/work/@a@l@u_32bit.sdb
+Saving Verilog parse-tree work.glbl into z:/lab3/lab2/isim/work/glbl.sdb
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 54152 Kb
+Fuse CPU Usage: 592 ms
+Compiling module glbl
+Compiling module ALU_32bit
+FATAL_ERROR:Simulator:Fuse.cpp:164:$Id: Fuse.cpp,v 1.35 2007/11/07 21:25:47
+   sonals Exp $ - Failed to link the design   Process will terminate. For
+   technical support on this issue, please open a WebCase with this project
+   attached at http://www.xilinx.com/support.

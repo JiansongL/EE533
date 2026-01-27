@@ -1,0 +1,48 @@
+Command line:
+   ./full_adder_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1118
+
+Mon Jan 26 23:16:29 2026
+
+Total Line Count : 0
+
+ Elaboration Time: 0.09375 sec
+
+ Current Memory Usage: 141.525 Meg
+
+ Total Signals          : 48
+ Total Nets             : 29
+ Total Signal Drivers   : 6
+ Total Blocks           : 10
+ Total Primitive Blocks : 6
+ Total Processes        : 6
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 512
+ntrace select -o on -n /full_adder/a 
+ntrace select -o on -n /full_adder/b 
+ntrace select -o on -n /full_adder/c_in 
+ntrace select -o on -n /full_adder/c_out 
+ntrace select -o on -n /full_adder/s 
+ntrace select -o on -n /full_adder/xlxn_1 
+ntrace select -o on -n /full_adder/xlxn_5 
+ntrace select -o on -n /full_adder/xlxn_6 
+ntrace select -o on -n /full_adder/xlxn_7 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+put a 0 
+isimrun 
+put b 1 
+isimrun 
+put c_in 1 
+isimrun 
+
+ Total Simulation Time: 0.46875 sec
+
+ Current Memory Usage: 152.023 Meg
+
+Mon Jan 26 23:18:06 2026
+
