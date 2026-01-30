@@ -1,18 +1,10 @@
 #!/usr/bin/env python3
-
-
 from __future__ import annotations
-
-
 import argparse
 import subprocess
 import time
 from typing import Tuple
-
-
 import numpy as np
-
-
 # Import helpers from gpu_conv
 from gpu_conv import (
     load_lib,
@@ -27,13 +19,7 @@ from gpu_conv import (
     kernel_prewitt,
     _run_conv,
 )
-
-
-
-
 OPS = ("gauss5", "box5", "lap4", "sharpen3", "sobel", "prewitt")
-
-
 
 
 def select_kernel(op: str):
@@ -52,13 +38,10 @@ def select_kernel(op: str):
     raise ValueError(f"Unsupported op: {op}")
 
 
-
-
 def run_python_cuda(img_path: str, size: int | None, iters: int, border: str, op: str) -> float:
     lib = load_lib()
     img = load_gray(img_path, size=size)
     border = normalize_border_name(border)
-
 
     # Sobel/Prewitt: do gradient magnitude with two passes; else single kernel
     if op in ("sobel", "prewitt"):
@@ -83,8 +66,6 @@ def run_python_cuda(img_path: str, size: int | None, iters: int, border: str, op
         return ms
 
 
-
-
 def parse_avg_ms_from_conv_demo(output: str) -> float:
     # Expect final summary line like: M=1024, N=5, iters=5, avg=XX.XXX ms, ...
     lines = [line.strip() for line in output.strip().splitlines() if line.strip()]
@@ -97,8 +78,6 @@ def parse_avg_ms_from_conv_demo(output: str) -> float:
     # Fallback: try last line numeric extraction
     last = lines[-1]
     return float(last.split('avg=')[1].split(' ms')[0])
-
-
 
 
 def run_c(img_path: str, iters: int, border: str, op: str) -> float:
@@ -118,8 +97,6 @@ def run_c(img_path: str, iters: int, border: str, op: str) -> float:
     return parse_avg_ms_from_conv_demo(out)
 
 
-
-
 def run_cuda_exe(img_path: str, iters: int, border: str, op: str) -> float:
     kmap = {
         "gauss5": "gauss5",
@@ -135,8 +112,6 @@ def run_cuda_exe(img_path: str, iters: int, border: str, op: str) -> float:
     return parse_avg_ms_from_conv_demo(out)
 
 
-
-
 def main():
     ap = argparse.ArgumentParser(description="Compare Python+CUDA vs C vs CUDA executable for convolution")
     ap.add_argument("--image", type=str, default="checker_1024.png")
@@ -146,12 +121,10 @@ def main():
     ap.add_argument("--border", type=str, default="reflect", choices=["zero","replicate","reflect","clamp"])
     args = ap.parse_args()
 
-
     # Run comparisons
     ms_py_cuda = run_python_cuda(args.image, args.size, args.iters, args.border, args.op)
     ms_c       = run_c(args.image, args.iters, args.border, args.op)
     ms_cuda    = run_cuda_exe(args.image, args.iters, args.border, args.op)
-
 
     print("Results (avg ms over", args.iters, "iters):")
     print(f"  Python + CUDA lib: {ms_py_cuda:.3f} ms  (op={args.op})")
@@ -161,8 +134,6 @@ def main():
     print("Speedups (higher is better):")
     print(f"  Python+CUDA vs C:    {ms_c / ms_py_cuda:.2f}x")
     print(f"  Python+CUDA vs CUDA: {ms_cuda / ms_py_cuda:.2f}x")
-
-
 
 
 if __name__ == "__main__":
