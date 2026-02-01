@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : dropfifo.vf
-// /___/   /\     Timestamp : 01/31/2026 14:52:50
+// /___/   /\     Timestamp : 01/31/2026 18:33:34
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -187,7 +187,7 @@ module dropfifo(clk,
                                    .CE(XLXN_17[0]), 
                                    .CLR(rst), 
                                    .D(XLXN_31[7:0]), 
-                                   .L(), 
+                                   .L(XLXN_16), 
                                    .CEO(), 
                                    .Q(XLXN_40[7:0]), 
                                    .TC());
@@ -218,7 +218,7 @@ module dropfifo(clk,
    // synthesis attribute HU_SET of XLXI_15 is "XLXI_15_3"
    CB8CE_HXILINX_dropfifo XLXI_17 (.C(rst), 
                                    .CE(XLXN_38), 
-                                   .CLR(), 
+                                   .CLR(rst), 
                                    .CEO(), 
                                    .Q(XLXN_32[7:0]), 
                                    .TC());

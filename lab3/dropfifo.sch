@@ -235,7 +235,7 @@ BEGIN SCHEMATIC
             PIN CE XLXN_17(0:0)
             PIN CLR rst
             PIN D(7:0) XLXN_31(7:0)
-            PIN L
+            PIN L XLXN_16
             PIN CEO
             PIN Q(7:0) XLXN_40(7:0)
             PIN TC
@@ -273,7 +273,7 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_17 cb8ce
             PIN C rst
             PIN CE XLXN_38
-            PIN CLR
+            PIN CLR rst
             PIN CEO
             PIN Q(7:0) XLXN_32(7:0)
             PIN TC
@@ -380,7 +380,11 @@ BEGIN SCHEMATIC
             WIRE 1552 1968 1696 1968
             WIRE 1408 1264 1552 1264
             WIRE 1552 1264 1680 1264
-            WIRE 1552 1264 1552 1552
+            WIRE 1552 1264 1552 1280
+            WIRE 1552 1280 1552 1552
+            WIRE 1552 1280 1728 1280
+            WIRE 1728 1280 1728 1776
+            WIRE 1728 1776 1744 1776
             WIRE 1696 1680 1696 1968
             WIRE 1696 1680 1744 1680
             WIRE 2192 464 2320 464
@@ -395,8 +399,11 @@ BEGIN SCHEMATIC
         IOMARKER 2288 272 in_fifo(71:0) R180 28
         BEGIN BRANCH XLXN_16
             WIRE 928 2000 1312 2000
-            WIRE 1312 624 1312 2000
             WIRE 1312 624 1328 624
+            WIRE 1312 624 1312 1024
+            WIRE 1312 1024 1312 1040
+            WIRE 1312 1040 1312 2000
+            WIRE 1312 1040 1680 1040
         END BRANCH
         BEGIN BRANCH XLXN_17(0:0)
             WIRE 1504 688 1504 1104
