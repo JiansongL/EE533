@@ -21,4 +21,5 @@ See [labs/README.md](labs/README.md) for more details on lab structure and submi
 ## Course Information
 
 - **Course**: EE533
+- **Group**: 7
 - **Purpose**: Homework and laboratory assignments
