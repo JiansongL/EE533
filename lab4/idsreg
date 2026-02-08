@@ -7,10 +7,10 @@ use strict;
 # Look for: IDS_PATTERN_HIGH_REG, IDS_PATTERN_LOW_REG, IDS_IDS_CMD_REG, IDS_MATCHES_REG
 # Or run: grep "IDS_" netfpga/projects/lab4/lib/C/reg_defines_lab4.h
 
-my $IDS_PATTERN_HI_REG = 0x2000300;  # Update from reg_defines_lab4.h: IDS_PATTERN_HIGH_REG
-my $IDS_PATTERN_LO_REG = 0x2000304;  # Update from reg_defines_lab4.h: IDS_PATTERN_LOW_REG
-my $IDS_COMMAND_REG = 0x2000308;     # Update from reg_defines_lab4.h: IDS_IDS_CMD_REG
-my $IDS_MATCHES_REG = 0x200030c;     # Update from reg_defines_lab4.h: IDS_MATCHES_REG
+my $IDS_PATTERN_HI_REG = 0x2000200;  # Update from reg_defines_lab4.h: IDS_PATTERN_HIGH_REG
+my $IDS_PATTERN_LO_REG = 0x2000204;  # Update from reg_defines_lab4.h: IDS_PATTERN_LOW_REG
+my $IDS_COMMAND_REG = 0x2000208;     # Update from reg_defines_lab4.h: IDS_IDS_CMD_REG
+my $IDS_MATCHES_REG = 0x200020c;     # Update from reg_defines_lab4.h: IDS_MATCHES_REG
 
 sub regwrite {
    my( $addr, $value ) = @_;
@@ -85,11 +85,11 @@ if ($cmd eq "write") {
       exit(1);
    }
     my $val = hex($ARGV[1]);
-   print "Writing $ARGV[1] to IDS Register (0x2000300)...\n";
+   print "Writing $ARGV[1] to IDS Register (0x2000200)...\n";
    regwrite($IDS_PATTERN_HI_REG, $val);
 } elsif ($cmd eq "read") {
    my $val = regread($IDS_PATTERN_HI_REG);
-   printf("Read 0x%08x from IDS Register (0x2000300)\n", $val);
+   printf("Read 0x%08x from IDS Register (0x2000200)\n", $val);
 } elsif ($cmd eq "reset") {
    idsreset();
 }elsif ($cmd eq "pattern") {
