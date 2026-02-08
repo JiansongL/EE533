@@ -1,0 +1,3 @@
+MODULE wire
+	SUBMODULE fd8ce
+		INSTANCE XLXI_4

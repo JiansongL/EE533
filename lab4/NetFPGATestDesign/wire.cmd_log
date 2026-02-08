@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family spartan3a   -w "C:/Documents and Settings/student/NetFPGATestDesign/wire.sch" wire.vf
+sch2verilog -intstyle ise -family spartan3a   -w "C:/Documents and Settings/student/NetFPGATestDesign/wire.sch" wire.vf
